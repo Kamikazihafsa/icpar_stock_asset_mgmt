@@ -25,12 +25,12 @@ SECRET_KEY = 'django-insecure-7!lmw1(7bt0clk8&8j4b7o%sg5p*_58)gt)#gmn#5jb_u8*-r1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+ALLOWED_HOSTS = [
+    'icpar-stock-asset-mgmt-1-x1eq.onrender.com',
+    'localhost',
+    '127.0.0.1'
+]
 
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS = [RENDER_EXTERNAL_HOSTNAME, '127.0.0.1', 'localhost']
-else:
-    ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'icpar-stock-asset-mgmt-1-x1eq.onrender.com']
 
 # Application definition
 
