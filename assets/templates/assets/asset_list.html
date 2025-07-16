@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Assets</h2>
+  <a href="{% url 'asset_create' %}" class="btn btn-primary">Add Asset</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Assigned To</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for asset in assets %}
+      <tr>
+        <td>{{ asset.name }}</td>
+        <td>{{ asset.category }}</td>
+        <td>{{ asset.assigned_to }}</td>
+        <td>
+          <a href="{% url 'asset_update' asset.pk %}">Edit</a> |
+          <a href="{% url 'asset_delete' asset.pk %}">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

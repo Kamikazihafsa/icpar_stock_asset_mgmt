@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Stock Items</h2>
+    <a href="{% url 'stock_create' %}" class="btn btn-primary">Add Item</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Reorder Level</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.reorder_level }}</td>
+                <td>
+                    {% if item.quantity <= item.reorder_level %}
+                        <span style="color:red;">Low Stock</span>
+                    {% else %}
+                        OK
+                    {% endif %}
+
+                </td>
+                <td>
+                    <a href="{% url 'stock_update' item.pk %}">Edit</a> |
+                    <a href="{% url 'stock_delete' item.pk %}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
