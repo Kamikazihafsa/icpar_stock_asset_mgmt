@@ -28,11 +28,9 @@ DEBUG = True
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 
 if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS = [RENDER_EXTERNAL_HOSTNAME, 'localhost', '127.0.0.1']
+    ALLOWED_HOSTS = [RENDER_EXTERNAL_HOSTNAME, '127.0.0.1', 'localhost']
 else:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-
-
+    ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'icpar-stock-asset-mgmt-1-x1eq.onrender.com']
 
 # Application definition
 
